@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {ProductConsimer} from '../context';
+import PropTypes from 'prop-types';
 
 export default function Product(props) {
     console.log(props)
@@ -36,6 +37,16 @@ export default function Product(props) {
             </div>
         </ProductWrapper>
     )
+}
+
+Product.propTypes = {
+    product:PropTypes.shape({
+        id:PropTypes.number,
+        img:PropTypes.string,
+        title:PropTypes.string,
+        price:PropTypes.number,
+        inCart:PropTypes.bool
+    }).isRequired
 }
 
 const ProductWrapper = styled.div`
