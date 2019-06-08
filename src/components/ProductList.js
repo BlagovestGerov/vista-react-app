@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import Product from './Product';
 import Title from './Title';
-import { storeProducts } from '../data';
 import { ProductConsumer } from '../context';
 
 export default function ProductList() {
 
-    const [products, setProducts ] = useState(storeProducts);
-    
-    console.log(products);
     return (
         <React.Fragment>
             <div className="py-5">
@@ -17,7 +13,10 @@ export default function ProductList() {
                     <div className="row">
                         <ProductConsumer>
                             {value=>{
-                                return <h1>{value}</h1>
+                                return value.products.map(product => {
+                                    return <Product key={product.id} 
+                                    product={product} />
+                                })
                             }}
                         </ProductConsumer>
                     </div>

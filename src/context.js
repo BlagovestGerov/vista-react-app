@@ -1,16 +1,35 @@
-import React, {useState, createContext, useContext} from 'react'
+import React, { Component } from 'react';
+import {storeProducts, detailProduct } from './data';
 
-const ProductContext = createContext();
-//Provider
-//Consumer
+const ProductContext = React.createContext();
 
-export const ProductProvider = ({children}) => {
+class ProductProvider extends Component {
+    state = {
+        products: storeProducts,
+        detailProducts: detailProduct
+    };
 
-    return (
-        <ProductContext.Provider value="hello from phone app">
-            {children}
-        </ProductContext.Provider>
-    )
+    handleDetail = () => {
+        console.log("hello from detail");
+    };
+
+    addToCart = () => {
+        console.log("hello from add to cart");
+    }
+
+    render() {
+        return (
+           <ProductContext.Provider
+           value={{
+            ...this.state,
+            handleDetail: this.handleDetail,
+            addToCart: this.addToCart
+           }}>
+             {this.props.children}
+           </ProductContext.Provider>
+        )
+    }
 }
+const ProductConsumer = ProductContext.Consumer;
 
-export const ProductConsumer = () => useContext(ProductContext);
+export { ProductProvider, ProductConsumer };
