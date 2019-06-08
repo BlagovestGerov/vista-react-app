@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import Details from './components/Details';
 import Default from './components/Default';
-import Card from './components/Card';
+import Cart from './components/Cart';
 import ProductList from './components/ProductList';
 
 
@@ -17,7 +17,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
-        <Route path="/card" component={Card} />
+        <Route path="/cart" component={Cart} />
         <Route component={Default} />
         </Switch>
     </React.Fragment>
