@@ -6,7 +6,7 @@ import {ButtonContainer} from './Button';
 export default function () {
     return (
        <ProductConsumer>
-           {(value)=>{
+           {value=>{
             const {id, company, img, info, price, title, inCart} = value.detailProduct;
             return(
                 <div className="container py-5">
@@ -46,7 +46,7 @@ export default function () {
                             </p>
                             {/* buttons */}
                             <div>
-                                <Link>
+                                <Link to="/">
                                 <ButtonContainer>
                                     back to products
                                 </ButtonContainer>
