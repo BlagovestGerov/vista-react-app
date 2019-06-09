@@ -11,7 +11,7 @@ export default function Product(props) {
         <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
             <div className="card">
                 <ProductConsumer>
-                    {(value) => (
+                    {value => (
                 <div className="img-container p-5" 
                 onClick={()=>
                     value.handleDetail(id)
@@ -21,8 +21,10 @@ export default function Product(props) {
                     </Link>
                     <button className="cart-btn" 
                     disabled={inCart ? true : false}
-                    onClick={()=>
-                    value.addToCart(id)
+                    onClick={()=>{
+                        value.addToCart(id);
+                        value.openModal(id);
+                    }
                     }>
                     {inCart ?(<p className="text-capitalize mb-0" disabled>
                     { " " } in cart    
