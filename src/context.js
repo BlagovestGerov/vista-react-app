@@ -6,15 +6,15 @@ const ProductContext = React.createContext();
 class ProductProvider extends Component {
     state = {
         products: storeProducts,
-        detailProducts: detailProduct
+        detailProduct: detailProduct
     };
 
     handleDetail = () => {
         console.log("hello from detail");
     };
 
-    addToCart = () => {
-        console.log("hello from add to cart");
+    addToCart = (id) => {
+        console.log(`hello from add to cart.id is ${id}`);
     }
 
     render() {
